@@ -5,10 +5,10 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   server: {
-    // /api/* 요청을 FastAPI(localhost:8000)로 전달 → CORS 문제 회피
+    // /api/* 요청을 FastAPI 서버로 전달 → CORS 문제 회피
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://3.34.222.61',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
